@@ -2,10 +2,20 @@ name: Executar Scan de Segurança
 
 on:
   workflow_dispatch:
+    inputs:
+      senha_desafio:
+        description: 'Digite a senha secreta (Vulnerabilidade Física das Fotos)'
+        required: true
+        default: ''
 
 jobs:
   jogar:
     runs-on: ubuntu-latest
+    
+    # Força o ambiente do GitHub a rodar com o Node 24 e sumir com o aviso
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+      
     steps:
       - name: Clonar o repositório
         uses: actions/checkout@v4
@@ -16,4 +26,4 @@ jobs:
           python-version: '3.x'
 
       - name: Rodar o Jogo Interativo
-        run: python jogo.py
+        run: python jogo.py "${{ github.event.inputs.senha_desafio }}"
