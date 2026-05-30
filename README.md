@@ -1,18 +1,17 @@
 # 🛡️ Projeto: Tinder Security Assessment (Bypass Challenge)
 
-Este repositório simula as regras de engajamento para o analista de segurança convidado. 
-Seu objetivo é invadir o banco de dados `keteline_core` e descobrir a chave de criptografia (FLAG).
+Este repositório simula um ambiente de testes para o analista de segurança convidado. 
+Seu objetivo é decifrar a `senha_secreta` para obter a FLAG de acesso.
 
 ### 🛠️ Regras do Jogo (Rules of Engagement)
-1. O analista tem direito a realizar tentativas de Engenharia Social via Direct do Instagram.
-2. É permitido analisar as fotos de perfil da Key-Owner (Proprietária da Chave) em busca de vazamento de credenciais (OSINT).
-3. O payload abaixo contém uma falha crítica de lógica. Descubra como explorá-la.
+1. Para rodar um scan e liberar pistas de Engenharia Social, o analista deve abrir uma **New Issue** neste repositório com o título `/scan --target keteline`.
+2. A proprietária do sistema (Key-Owner) responderá dentro da Issue liberando o acesso às perguntas.
+3. Se o analista descobrir a senha nas fotos de perfil, ele deve enviar o palpite final na mesma Issue.
 
 ### 💻 Vulnerability Code Snippet
 
 ```sql
-SELECT flag_recompensa, local_do_date 
+SELECT flag_recompensa, whatsapp 
 FROM keteline_brain 
 WHERE pretendente = 'Analista_Tinder' 
-  AND status_conversa = 'Insta'
-  AND senha_secreta = '[BLOQUEADO: REQUER ENGENHARIA SOCIAL]';
+  AND senha_secreta = '[BLOQUEADO: REQUER SCAN VIA ISSUES]';
