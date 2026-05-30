@@ -1,0 +1,19 @@
+name: Executar Scan de Segurança
+
+on:
+  workflow_dispatch:
+
+jobs:
+  jogar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar o repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar o Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Rodar o Jogo Interativo
+        run: python jogo.py
