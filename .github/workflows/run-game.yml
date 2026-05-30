@@ -11,19 +11,14 @@ on:
 jobs:
   jogar:
     runs-on: ubuntu-latest
-    
-    # Força o ambiente do GitHub a rodar com o Node 24 e sumir com o aviso
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
-      
     steps:
       - name: Clonar o repositório
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7
 
       - name: Configurar o Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.1.1
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
       - name: Rodar o Jogo Interativo
         run: python jogo.py "${{ github.event.inputs.senha_desafio }}"
