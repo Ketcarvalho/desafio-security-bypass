@@ -1,4 +1,4 @@
-# 🛡️ Tinder Security Assessment (Bypass Challenge)
+# 🛡️ Security Assessment (Bypass Challenge)
 
 Bem-vindo ao ambiente de testes para o analista de segurança convidado. Seu objetivo é realizar um bypass no sistema `keteline_core` e descobrir a senha secreta (FLAG) para liberar o acesso ao banco de dados principal.
 
