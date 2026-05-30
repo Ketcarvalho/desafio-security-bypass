@@ -1,12 +1,26 @@
-# 🛡️ Projeto: Tinder Security Assessment (Bypass Challenge)
+# 🛡️ Tinder Security Assessment (Bypass Challenge)
 
-Este repositório simula um ambiente de testes para o analista de segurança convidado. 
-Seu objetivo é decifrar a `senha_secreta` para obter a FLAG de acesso.
+Bem-vindo ao ambiente de testes para o analista de segurança convidado. Seu objetivo é realizar um bypass no sistema `keteline_core` e descobrir a senha secreta (FLAG) para liberar o acesso ao banco de dados principal.
 
-### 🛠️ Regras do Jogo (Rules of Engagement)
-1. Para rodar um scan e liberar pistas de Engenharia Social, o analista deve abrir uma **New Issue** neste repositório com o título `/scan --target keteline`.
-2. A proprietária do sistema (Key-Owner) responderá dentro da Issue liberando o acesso às perguntas.
-3. Se o analista descobrir a senha nas fotos de perfil, ele deve enviar o palpite final na mesma Issue.
+---
+
+### 🚀 Como Executar o Scan de Segurança (Instruções de Invasão)
+
+Para rodar o script interativo e testar seus palpites de senha, siga os passos abaixo dentro da plataforma:
+
+1. Vá até o menu superior deste repositório e clique na aba **"Actions"** (ao lado de Pull Requests).
+2. Na barra lateral esquerda, selecione o fluxo **"Executar Scan de Segurança"**.
+3. No lado direito da tela, clique no botão cinza **"Run workflow"**.
+4. Um campo de texto será aberto. Digite ali o seu palpite de senha (payload) e clique no botão verde **"Run workflow"** para disparar o exploit.
+5. Após o carregamento, clique na execução do teste para abrir o terminal e ler os logs do sistema.
+
+---
+
+### 🛠️ Regras do Jogo & Engenharia Social
+
+* O analista tem direito a realizar tentativas de Engenharia Social via Direct do Instagram para pescar pistas.
+* É permitido (e altamente recomendado) analisar as fotos de perfil da Key-Owner em busca de vazamento de credenciais (reconhecimento via OSINT).
+* **Dica do Firewall:** A senha secreta é uma vulnerabilidade física real, visível aos olhos de quem repara nos detalhes. Está documentada visualmente em algum lugar das fotos.
 
 ### 💻 Vulnerability Code Snippet
 
@@ -14,4 +28,4 @@ Seu objetivo é decifrar a `senha_secreta` para obter a FLAG de acesso.
 SELECT flag_recompensa, whatsapp 
 FROM keteline_brain 
 WHERE pretendente = 'Analista_Tinder' 
-  AND senha_secreta = '[BLOQUEADO: REQUER SCAN VIA ISSUES]';
+  AND senha_secreta = '[REQUER INPUT VIA WORKFLOW ACTIONS]';
