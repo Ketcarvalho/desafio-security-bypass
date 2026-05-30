@@ -1,4 +1,3 @@
-import os
 import sys
 
 def rodar_scan():
@@ -8,30 +7,28 @@ def rodar_scan():
     
     print("[*] Iniciando varredura no alvo: keteline...")
     print("[+] Conexão estabelecida via Tinder/Instagram bypass.")
-    print("[!] Alerta: Uma vulnerabilidade visual foi detectada nas fotos de perfil.")
-    print("[?] Engenharia Social ativa. Responda aos inputs do sistema.\n")
+    print("[!] Alerta: Uma vulnerabilidade visual foi detectada nas fotos de perfil.\n")
 
-    # Primeira pergunta de Engenharia Social
-    pergunta_1 = input("Módulo 01: Qual é o foco principal da rotina diária da Key-Owner (Ex: trabalho, academia, estudos)?\n> ").strip().lower()
-    
-    if "academia" in pergunta_1 or "malhar" in pergunta_1 or "treino" in pergunta_1:
-        print("\n🟢 [ACESS GRANTED] Resposta correta! Você identificou o ambiente da vulnerabilidade.")
-        print("Dica: Olhe atentamente para as pernas dela nas fotos desse ambiente...\n")
-    else:
-        print("\n🔴 [ACCESS DENIED] Resposta incorreta. O sistema de IA bloqueou sua tentativa.")
+    # Verifica se ele preencheu o campo de texto no GitHub
+    if len(sys.argv) < 2 or sys.argv[1].strip() == "":
+        print("🔴 [ERRO] Nenhuma senha foi enviada no input do Scan.")
+        print("Dica: Você precisa digitar seu palpite no campo de texto antes de rodar o workflow!")
         sys.exit(1)
+        
+    senha_tentada = sys.argv[1].strip().lower()
+    print(f"[*] Analisando payload enviado: '{senha_tentada}'...\n")
 
-    # Input da Senha Final
-    senha = input("Módulo 02: Digite o código da senha secreta (A vulnerabilidade física):\n> ").strip().lower()
-
-    if senha == "pikachu":
-        print("\n" + "🎉"*15)
+    # Validação da senha
+    if senha_tentada == "pikachu":
+        print("🎉" * 15)
         print("💥 CRITICAL BYPASS! SISTEMA TOTALMENTE INVASIDO!")
-        print("🎉"*15 + "\n")
+        print("🎉" * 15 + "\n")
         print("[+] Flag encontrada: SUCCESS_PART_2_INSTAGRAM")
-        print("[+] Recompensa: Você desbloqueou o próximo nível. Volte ao Direct do Instagram e mande o código 'PIKACHU INVASOR' para receber seu prêmio (WhatsApp/Date).")
+        print("[+] Recompensa: Você desbloqueou o próximo nível.")
+        print("👉 Volte ao Direct do Instagram e mande o código 'PIKACHU INVASOR' para receber seu prêmio (WhatsApp/Date).")
     else:
-        print("\n🔴 [ALERTA DE INTRUSO] Senha incorreta. Payload bloqueado pelo Firewall.")
+        print("🔴 [ALERTA DE INTRUSO] Senha incorreta. Payload bloqueado pelo Firewall.")
+        print("Dica: Olhe atentamente para as fotos de perfil da dona do repositório (foco nos detalhes das pernas).")
         sys.exit(1)
 
 if __name__ == "__main__":
