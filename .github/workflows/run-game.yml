@@ -8,6 +8,10 @@ on:
         required: true
         default: ''
 
+# Força o ambiente inteiro do GitHub a usar o Node 24 antes mesmo de iniciar as ações
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   jogar:
     runs-on: ubuntu-latest
